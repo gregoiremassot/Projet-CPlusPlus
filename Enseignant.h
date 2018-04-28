@@ -6,6 +6,7 @@
 #define PROJET_CPP_ENSEIGNANT_H
 #include <string>
 #include <vector>
+
 using namespace std;
 
 class Enseignant {
@@ -15,7 +16,7 @@ public:
 private:
     unsigned int m_number;
     string m_name;
-    std::vector<string> m_ue;
+    std::vector<int> m_ue;
 };
 
 

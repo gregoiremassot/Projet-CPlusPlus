@@ -4,13 +4,23 @@
 
 #ifndef PROJET_CPP_COURS_H
 #define PROJET_CPP_COURS_H
-#include <string>
 
+#include <string>
+#include "Enseignant.h"
+#include "Etudiant.h"
+#include <vector>
+#include "structures.h"
 using namespace std;
 
-class Cours {
+class Cours
+{
+public:
+    Cours(string nom_fichier);
 private:
     unsigned int m_code;
+    string m_nom;
+    Enseignant* m_enseignant;
+    vector<eleve> m_eleves;
 
 };
 

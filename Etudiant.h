@@ -6,13 +6,14 @@
 #define PROJET_CPP_ETUDIANT_H
 #include <string>
 #include <vector>
+#include "Cours.h"
 using namespace std;
 
 class Etudiant {
 private:
     unsigned int m_id;
     string m_name;
-
+    //vector<Cours,double> cours_avec_notes;
 };
 
 
