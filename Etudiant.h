@@ -6,8 +6,9 @@
 #define PROJET_CPP_ETUDIANT_H
 #include <string>
 #include <vector>
-#include "Cours.h"
+
 using namespace std;
+class Cours;
 
 class Etudiant {
 private:

@@ -3,7 +3,7 @@
 #include "Cours.h"
 int main()
 {
-    //Cours Biologie("1");
+    Cours Biologie("1");
 
     return 0;
 }

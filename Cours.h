@@ -6,11 +6,11 @@
 #define PROJET_CPP_COURS_H
 
 #include <string>
-#include "Enseignant.h"
-#include "Etudiant.h"
 #include <vector>
 #include "structures.h"
 using namespace std;
+
+class Enseignant;
 
 class Cours
 {
