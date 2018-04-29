@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include <string>
-#include "Cours.h"
+#include "../h/Cours.h"
 #include <fstream>
 
 using namespace std;

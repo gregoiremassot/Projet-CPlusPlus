@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Enseignant.h"
-#include "Cours.h"
+#include "../h/Enseignant.h"
+#include "../h/Cours.h"
 int main()
 {
     Cours Biologie("1");

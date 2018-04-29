@@ -1,7 +1,7 @@
 //
 // Created by Grégoire on 26/04/2018.
 //
-#include "Enseignant.h"
+#include "../h/Enseignant.h"
 #include <iostream>
 Enseignant::Enseignant(void)
 {
