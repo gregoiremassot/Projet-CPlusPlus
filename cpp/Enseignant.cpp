@@ -7,3 +7,8 @@ Enseignant::Enseignant(void)
 {
     std::cout << "Je suis un nouveau professeur" << std::endl;
 }
+
+void Enseignant::setNom(string nom)
+{
+    m_name = nom;
+}

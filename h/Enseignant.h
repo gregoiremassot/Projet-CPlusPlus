@@ -14,6 +14,7 @@ class Enseignant {
 
 public:
     Enseignant(void);
+    void setNom(string nom);
 private:
     unsigned int m_number;
     string m_name;

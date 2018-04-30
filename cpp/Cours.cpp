@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "../h/Cours.h"
+#include "../h/Enseignant.h"
 #include <fstream>
 
 using namespace std;
@@ -17,12 +18,21 @@ Cours::Cours(string nom_fichier)
     }
     else
     {
-        std::string line;
-        while (std::getline(fichier, line))
-        {
-            //std::istringstream iss(line);
-            cout << line << endl;
-        }
+        string line;
+        string s;
+
+        getline(fichier, line);
+        s = line;
+        m_code = stoi(s);
+
+        getline(fichier, line);
+        s = line;
+        m_nom = s;
+        cout << s;
+
+        getline(fichier, line);
+        s = line;
+        m_enseignant->setNom(s);
     }
 
 
