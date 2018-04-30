@@ -1,3 +1,4 @@
+// Binome : Grégoire MASSOT - David-Anthony SELLEM
 #include <iostream>
 #include "../h/Enseignant.h"
 #include "../h/Cours.h"
