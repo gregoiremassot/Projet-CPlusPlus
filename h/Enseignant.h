@@ -8,7 +8,7 @@
 #include <vector>
 
 using namespace std;
-
+class Cours;
 class Enseignant {
 
 public:
@@ -16,7 +16,7 @@ public:
 private:
     unsigned int m_number;
     string m_name;
-    std::vector<int> m_ue;
+    std::vector<Cours*> m_ue;
 };
 
 
