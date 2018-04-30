@@ -10,16 +10,19 @@ using namespace std;
 
 Cours::Cours(string nom_fichier)
 {
-    ofstream fichier("Universite/Cours/" + nom_fichier + ".txt");  // on ouvre en lecture
-
-    if(fichier)
+    ifstream fichier("../Universite/Cours/" + nom_fichier + ".txt");  // on ouvre en lecture
+    if(!fichier)
     {
-        /*string ligne;
-        while(getline(fichier, ligne))  // tant que l'on peut mettre la ligne dans "contenu"
+        cout << "Impossible de lire le fichier" << endl;
+    }
+    else
+    {
+        std::string line;
+        while (std::getline(fichier, line))
         {
-            cout << ligne << endl;  // on l'affiche
-        }*/
-        cout << "Coucou !";
+            //std::istringstream iss(line);
+            cout << line << endl;
+        }
     }
 
 

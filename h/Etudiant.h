@@ -14,7 +14,7 @@ class Etudiant {
 private:
     unsigned int m_id;
     string m_name;
-    //vector<Cours,double> cours_avec_notes;
+    vector<Cours> cours_avec_notes;
 };
 
 

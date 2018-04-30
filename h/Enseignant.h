@@ -9,6 +9,7 @@
 
 using namespace std;
 class Cours;
+
 class Enseignant {
 
 public:
