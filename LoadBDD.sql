@@ -34,3 +34,4 @@ CREATE TABLE suivre
   note INT,
   PRIMARY KEY(code_cours, numero_etudiant)
 );
+

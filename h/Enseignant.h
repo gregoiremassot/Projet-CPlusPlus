@@ -13,11 +13,13 @@ class Cours;
 class Enseignant {
 
 public:
-    Enseignant(void);
-    void setNom(string nom);
+    Enseignant(string nom_fichier);
+    int getNumber();
+    string getNom();
 private:
     unsigned int m_number;
     string m_name;
+    vector<int> m_id_ue;
     std::vector<Cours*> m_ue;
 };
 

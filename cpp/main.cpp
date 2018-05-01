@@ -5,6 +5,6 @@
 int main()
 {
     Cours Biologie("1");
-
+    cout << Biologie.getIdEleve(1);
     return 0;
 }

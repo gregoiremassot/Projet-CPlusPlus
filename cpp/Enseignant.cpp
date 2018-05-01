@@ -3,12 +3,32 @@
 //
 #include "../h/Enseignant.h"
 #include <iostream>
-Enseignant::Enseignant(void)
+#include <fstream>
+
+Enseignant::Enseignant(string nom_fichier)
 {
-    std::cout << "Je suis un nouveau professeur" << std::endl;
+    ifstream fichier("../Universite/Enseignants/" + nom_fichier + ".txt");  // on ouvre en lecture
+    if(!fichier)
+    {
+        cout << "Impossible de lire le fichier" << endl;
+    }
+    else
+    {
+        string line;
+        string s;
+
+        getline(fichier, line);
+        s = line;
+        m_number = stoi(s);
+
+        getline(fichier, line);
+        s = line;
+        m_name = s;
+
+    }
+
+
 }
 
-void Enseignant::setNom(string nom)
-{
-    m_name = nom;
-}
+int Enseignant::getNumber() {return m_number;};
+string Enseignant::getNom() {return m_name;};
