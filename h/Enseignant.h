@@ -16,6 +16,7 @@ public:
     Enseignant(string nom_fichier);
     int getNumber();
     string getNom();
+    int getIdue(int nombre);
 private:
     unsigned int m_number;
     string m_name;
