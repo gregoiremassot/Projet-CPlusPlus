@@ -10,7 +10,13 @@
 #include "Cours.h"
 
 #include <vector>
+
 using namespace std;
+
+class Cours;
+class Etudiant;
+class Enseignant;
+
 
 class Universite
 {

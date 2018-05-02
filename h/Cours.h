@@ -7,8 +7,17 @@
 
 #include <string>
 #include <vector>
-#include "structures.h"
+#include "Etudiant.h"
+
 using namespace std;
+
+class Etudiant;
+
+struct eleve
+{
+    Etudiant* m_etudiant;
+    double m_note;
+};
 
 class Enseignant;
 

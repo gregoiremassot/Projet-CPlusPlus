@@ -7,15 +7,14 @@
 
 Enseignant::Enseignant(string nom_fichier)
 {
-    ifstream fichier("../Universite/Enseignants/" + nom_fichier + ".txt");  // on ouvre en lecture
+    ifstream fichier("/Universite/Enseignants/" + nom_fichier + ".txt");  // on ouvre en lecture
     if(!fichier)
     {
         cout << "Impossible de lire le fichier" << endl;
     }
     else
     {
-        string line;
-        string s;
+        string line, s;
 
         getline(fichier, line);
         s = line;

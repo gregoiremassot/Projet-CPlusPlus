@@ -6,15 +6,26 @@
 #define PROJET_CPP_ETUDIANT_H
 #include <string>
 #include <vector>
+#include "Cours.h"
+
+struct cours_avec_notes{
+    Cours* cours;
+    double note;
+};
 
 using namespace std;
 class Cours;
 
 class Etudiant {
+
+public:
+    Etudiant(void); // Constructeur
+    int moyenne(void);
+
 private:
     unsigned int m_id;
     string m_name;
-    vector<Cours> cours_avec_notes;
+    vector<cours_avec_notes> m_liste_cours;
 };
 
 
