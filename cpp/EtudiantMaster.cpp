@@ -18,13 +18,13 @@ EtudiantMaster::help_tutores(void)
 
     while(not m_tutores.at(i).help(loop) and loop<m_tutores.at(i).m_liste_cours.size()) //tant qu'il n'y a pas un cours où il a besoin d'aide ET qu'il y a des cours à vérifier
     {
-      loop++ // je passe au cours suivant
+      loop++; // je passe au cours suivant
     }
 
-      help_tutores.push_back(m_tutores.at(i).help(loop)) // le dernier cours vérifier me dit s'il a bseoin d'aide ou pas.
+      help_tutores.push_back(m_tutores.at(i).help(loop)); // le dernier cours vérifier me dit s'il a bseoin d'aide ou pas.
 
   }
 
-  return help_tutores
+  return help_tutores;
 };
 

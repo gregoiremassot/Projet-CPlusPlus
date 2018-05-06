@@ -5,6 +5,7 @@
 #include "../h/Cours.h"
 #include "../h/Enseignant.h"
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -62,6 +63,36 @@ Cours::Cours(string nom_fichier)
 
 
 }
+
+double Cours::moyenne(void)
+{
+    double moyenne=0;
+    for(i=0; i<m_eleves.size(); i++)
+    {
+        moyenne+=m_eleves.at(i).e_note;
+    }
+    moyenne/=m_eleves.size();
+    return moyenne;
+}
+
+vector<bool> Cours::help_cours(void) // renvoit True (besoin d'aide) or False pour chaque étudiant du cours
+{
+    vector<bool> help_cours;
+
+    for(i=0;i<m_eleve.size();i++)
+    {
+        if(m_eleves.at(i).e_notes <10)
+        {
+            help_cours.push_back(true);
+        }
+        else
+        {
+            help_cours.push_back(false);
+        }
+    }
+        return help_cours;
+};
+
 
 int Cours::getCode() { return m_code;};
 string Cours::getNom() { return m_nom;};
