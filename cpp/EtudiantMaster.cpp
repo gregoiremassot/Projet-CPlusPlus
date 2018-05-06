@@ -11,7 +11,7 @@ EtudiantMaster::help_tutores(void)
 {
   vector<bool> help_tutores;
 
-  for(i=0; i<m_tutores.size(); i++) // pour chacun de mes tutores
+  /*for(i=0; i<m_tutores.size(); i++) // pour chacun de mes tutores
   {
     bool stop;
     int loop=0;
@@ -23,8 +23,8 @@ EtudiantMaster::help_tutores(void)
 
       help_tutores.push_back(m_tutores.at(i).help(loop)); // le dernier cours vérifier me dit s'il a bseoin d'aide ou pas.
 
-  }
+  }*/
 
-  return help_tutores;
+  //return help_tutores;
 };
 

@@ -4,7 +4,7 @@
 #include "../h/Enseignant.h"
 #include <iostream>
 #include <fstream>
-#include <vecotr>
+#include <vector>
 
 class Etudiant
 

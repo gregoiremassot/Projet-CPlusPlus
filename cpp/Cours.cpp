@@ -67,7 +67,7 @@ Cours::Cours(string nom_fichier)
 double Cours::moyenne(void)
 {
     double moyenne=0;
-    for(i=0; i<m_eleves.size(); i++)
+    for(int i=0; i<m_eleves.size(); i++)
     {
         moyenne+=m_eleves.at(i).e_note;
     }
@@ -79,7 +79,7 @@ vector<bool> Cours::help_cours(void) // renvoit True (besoin d'aide) or False po
 {
     vector<bool> help_cours;
 
-    for(i=0;i<m_eleve.size();i++)
+    /*for(int i=0;i<m_eleve.size();i++)
     {
         if(m_eleves.at(i).e_notes <10)
         {
@@ -89,7 +89,7 @@ vector<bool> Cours::help_cours(void) // renvoit True (besoin d'aide) or False po
         {
             help_cours.push_back(false);
         }
-    }
+    }*/
         return help_cours;
 };
 
