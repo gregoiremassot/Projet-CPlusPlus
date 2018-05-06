@@ -21,7 +21,7 @@ private:
     unsigned int m_number;
     string m_name;
     vector<int> m_id_ue;
-    std::vector<Cours*> m_ue;
+    vector<Cours*> m_ue;
 };
 
 
