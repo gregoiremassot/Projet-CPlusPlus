@@ -89,15 +89,19 @@ WHERE t1.numero_etudiant = t2.numero_etudiant
 AND t1.code_cours = t2.code_cours
 AND t1.note < t2.note;
 
+
+-- TXT Enseignant
 SELECT enseignant.numero, enseignant.nom, GROUP_CONCAT(cours.code SEPARATOR ';')
 FROM enseignant INNER JOIN cours ON enseignant.numero = cours.numero_enseignant
 GROUP BY enseignant.numero, enseignant.nom;
 
+-- TXT Etudiant Master
 SELECT A.numero, A.nom, A.matieres, A.notes, B.filleuls FROM
   (SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.nom SEPARATOR ';') AS matieres, GROUP_CONCAT(suivre.note SEPARATOR ';') AS notes
   FROM etudiant
   INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
   INNER JOIN cours ON cours.code = suivre.code_cours
+  WHERE etudiant.niveau = 'Master'
 GROUP BY etudiant.numero, etudiant.nom) A
 INNER JOIN (SELECT master.numero, master.nom, GROUP_CONCAT(licence.numero SEPARATOR ';') AS filleuls
 FROM etudiant AS master
@@ -105,9 +109,16 @@ LEFT JOIN etudiant AS licence ON licence.id_tuteur = master.numero
 GROUP BY master.numero) B
 ON A.numero = B.numero;
 
+-- TXT Etudiant Licence
+SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.nom SEPARATOR ';') AS matieres, GROUP_CONCAT(suivre.note SEPARATOR ';') AS notes
+  FROM etudiant
+  INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
+  INNER JOIN cours ON cours.code = suivre.code_cours
+  WHERE etudiant.niveau = 'Licence'
+GROUP BY etudiant.numero, etudiant.nom
 
-
-SELECT cours.code, cours.nom, cours.numero_enseignant, cours.niveau, GROUP_CONCAT(suivre.numero_etudiant SEPARATOR ';')
+-- TXT Cours
+SELECT cours.code, cours.nom, cours.numero_enseignant, cours.niveau, GROUP_CONCAT(suivre.numero_etudiant SEPARATOR ';') AS etudiants
 FROM cours
 INNER JOIN suivre ON suivre.code_cours = cours.code
 GROUP BY cours.code, cours.nom, cours.numero_enseignant, cours.niveau;

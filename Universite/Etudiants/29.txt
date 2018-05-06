@@ -1,0 +1,4 @@
+29
+Pierre
+Histoire;R;Philo;Maths
+12;11;4;19

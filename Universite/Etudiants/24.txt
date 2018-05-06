@@ -1,0 +1,4 @@
+24
+Hubert
+Philo;Micro;Lettres
+20;20;14
