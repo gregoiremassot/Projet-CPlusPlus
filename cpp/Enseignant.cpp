@@ -4,6 +4,15 @@
 #include "../h/Enseignant.h"
 #include <iostream>
 #include <fstream>
+#include <vecotr>
+
+class Etudiant
+
+struct cancre
+    {
+      Etudiant* c_etudiant;
+      bool c_help; // True --> c'est un cancre
+    };
 
 Enseignant::Enseignant(string nom_fichier)
 {
@@ -53,6 +62,27 @@ Enseignant::Enseignant(string nom_fichier)
 
 
 }
+
+vector<cancre> Enseignant::need_help()
+{
+    vector<cancre> need_help;
+    cancre temoin;
+
+    for (int c=0; c<m_ue.size(); c++) // pour chacun des cours de l'enseignant
+    {
+        for (int e=0; e<m_ue.at(c).m_eleve.size(); e++) // et chacun des élèves à ces cours
+        {
+            temoin.c_etudiant = m_ue.at(c).m_eleves.at(e);
+            temoin.c_help = temoin.c_etudiant.help(m_ue.at(c).m_code);
+
+            if ( not temoin.c_help)
+            {
+                need_help.push_back(temoin);
+            }
+        }
+    }
+    return need_help;
+};
 
 int Enseignant::getNumber() {return m_number;};
 string Enseignant::getNom() {return m_name;};

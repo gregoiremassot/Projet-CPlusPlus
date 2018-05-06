@@ -12,14 +12,14 @@
 using namespace std;
 
 class Etudiant;
+class Enseignant;
 
 struct eleve
 {
-    Etudiant* m_etudiant;
-    double m_note;
+    Etudiant* e_etudiant;
+    double e_note;
 };
 
-class Enseignant;
 
 class Cours
 {
@@ -29,6 +29,9 @@ public:
     string getNom();
     int getIdEnseignant();
     int getIdEleve(int i);
+    double moyenne(void);
+    vector<bool> help_cours(void);
+
 private:
     unsigned int m_code;
     string m_nom;

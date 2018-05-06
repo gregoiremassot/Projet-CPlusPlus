@@ -1,5 +1,5 @@
 //
-// Created by Grégoire on 28/04/2018.
+// Updated by Davidan97 on 6/05/2018.
 //
 
 #ifndef PROJET_CPP_ETUDIANTMASTER_H
@@ -9,10 +9,13 @@
 
 using namespace std;
 
-class EtudiantMaster : public Etudiant {
-private:
-    vector<EtudiantLicence> tutores;
-};
+class EtudiantMaster : public Etudiant
+{
+public:
+    vector<bool> help_tutores(void);
 
+private:
+    vector<EtudiantLicence> m_tutores;
+};
 
 #endif //PROJET_CPP_ETUDIANTMASTER_H

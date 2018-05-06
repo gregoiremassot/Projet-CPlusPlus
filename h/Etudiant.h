@@ -1,5 +1,5 @@
 //
-// Created by Grégoire on 26/04/2018.
+// Updated by Davidan97 on 6/05/2018.
 //
 
 #ifndef PROJET_CPP_ETUDIANT_H
@@ -26,6 +26,8 @@ public:
     Etudiant(string nom_fichier); // Constructeur
     int get_id(void);
     double moyenne(void);
+    int classement(int ID);
+    bool help(int ID);
     string get_name(void);
     double get_note_cours(int code_cours);
 
