@@ -15,6 +15,14 @@ CREATE TABLE etudiant
   id_tuteur INT
 );
 
+CREATE TABLE etudiant_licence
+(
+  numero INT PRIMARY KEY ,
+  nom VARCHAR(50),
+  niveau VARCHAR(10),
+  id_tuteur INT
+);
+
 CREATE TABLE enseignant
 (
   numero INT PRIMARY KEY,
@@ -85,25 +93,26 @@ SELECT enseignant.numero, enseignant.nom, GROUP_CONCAT(cours.code SEPARATOR ';')
 FROM enseignant INNER JOIN cours ON enseignant.numero = cours.numero_enseignant
 GROUP BY enseignant.numero, enseignant.nom;
 
-SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.nom SEPARATOR ';'), GROUP_CONCAT(suivre.note SEPARATOR ';')
-FROM etudiant
-INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
-INNER JOIN cours ON cours.code = suivre.code_cours
-  WHERE etudiant.niveau = 'Licence'
-GROUP BY etudiant.numero, etudiant.nom;
-
-SELECT master.numero, master.nom, GROUP_CONCAT(DISTINCT cours.nom SEPARATOR ';'), GROUP_CONCAT(DISTINCT suivre.note SEPARATOR ';'), GROUP_CONCAT(DISTINCT tutores.numero SEPARATOR ';')
+SELECT A.numero, A.nom, A.matieres, A.notes, B.filleuls FROM
+  (SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.nom SEPARATOR ';') AS matieres, GROUP_CONCAT(suivre.note SEPARATOR ';') AS notes
+  FROM etudiant
+  INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
+  INNER JOIN cours ON cours.code = suivre.code_cours
+GROUP BY etudiant.numero, etudiant.nom) A
+INNER JOIN (SELECT master.numero, master.nom, GROUP_CONCAT(licence.numero SEPARATOR ';') AS filleuls
 FROM etudiant AS master
-INNER JOIN suivre ON master.numero = suivre.numero_etudiant
-INNER JOIN cours ON cours.code = suivre.code_cours
-INNER JOIN etudiant AS tutores ON tutores.id_tuteur = master.numero
-WHERE master.niveau = 'Master'
-GROUP BY master.numero, master.nom;
+LEFT JOIN etudiant AS licence ON licence.id_tuteur = master.numero
+GROUP BY master.numero) B
+ON A.numero = B.numero;
+
+
 
 SELECT cours.code, cours.nom, cours.numero_enseignant, cours.niveau, GROUP_CONCAT(suivre.numero_etudiant SEPARATOR ';')
 FROM cours
 INNER JOIN suivre ON suivre.code_cours = cours.code
-GROUP BY cours.code, cours.nom, cours.numero_enseignant, cours.niveau
+GROUP BY cours.code, cours.nom, cours.numero_enseignant, cours.niveau;
+
+SELECT * FROM suivre WHERE suivre.numero_etudiant = 33
 
 
 
