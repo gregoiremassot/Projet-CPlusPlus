@@ -1,5 +1,5 @@
 //
-// Created by Grégoire on 26/04/2018.
+// Updated by Davidan97 on 6/05/2018.
 //
 #include <iostream>
 #include "../h/Cours.h"
@@ -67,3 +67,4 @@ int Cours::getCode() { return m_code;};
 string Cours::getNom() { return m_nom;};
 int Cours::getIdEnseignant() { return m_id_enseignant;};
 int Cours::getIdEleve(int i) {return m_id_eleve[i];};
+

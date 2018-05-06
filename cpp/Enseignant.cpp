@@ -4,6 +4,9 @@
 #include "../h/Enseignant.h"
 #include <iostream>
 #include <fstream>
+#include <vecotr>
+
+class Etudiant
 
 Enseignant::Enseignant(string nom_fichier)
 {
@@ -53,6 +56,17 @@ Enseignant::Enseignant(string nom_fichier)
 
 
 }
+
+vector<Etudiant> Enseignant::need_help()
+/*{
+    for (int c=0; c<m_ue.size(); c++)
+    {
+        for (int e=0; e<m_eleve.size(); e++)
+        m_ue.at(c).m_eleves.at(e)
+    }*/
+
+
+};
 
 int Enseignant::getNumber() {return m_number;};
 string Enseignant::getNom() {return m_name;};

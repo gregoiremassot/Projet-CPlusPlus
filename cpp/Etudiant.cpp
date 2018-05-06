@@ -1,5 +1,5 @@
 //
-// Created by Grégoire on 26/04/2018.
+// Updated by Davidan97 on 6/05/2018.
 //
 
 #include "../h/Etudiant.h"
@@ -69,8 +69,7 @@ Etudiant::Etudiant(string nom_fichier)
     }
 }
 
-
-double Etudiant::moyenne()
+double Etudiant::moyenne() // permet de calculer sa moyenne
 {
     double moyenne;
     for (int k=0; k<m_liste_cours.size(); k++)
@@ -79,6 +78,34 @@ double Etudiant::moyenne()
     }
     return moyenne/m_liste_cours.size();
 };
+
+int Etudiant::classement(int ID) // permet de calculer son classement à un cours
+{
+    int classement=1;
+
+    for (i=0; i<m_liste.cours.at(ID).cours.m_eleve.size(); i++) // pour chacun des élèves du cours
+    {
+        if (m_liste.cours.at(ID).cours.m_eleve.at(i).m_note > m_liste_cours.at(ID).note)
+        {
+            classement++;
+        }
+    }
+    return classement
+};
+
+bool Etudiant::help(int ID) // renvoie True si l'étudiant a besoin d'aide / False sinon
+{
+  if(m_liste_cours.at(ID).note < 10)
+    {
+        return true;
+    }
+    else
+    {
+        return false
+    }
+};
+
+
 
 int Etudiant::get_id()
 {
