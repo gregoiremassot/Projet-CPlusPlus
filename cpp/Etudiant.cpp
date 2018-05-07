@@ -65,7 +65,6 @@ Etudiant::Etudiant(string nom_fichier)
         }
 
 
-
     }
 }
 
@@ -79,7 +78,7 @@ double Etudiant::moyenne(void) // permet de calculer sa moyenne
     return moyenne/m_liste_cours.size();
 };
 
-int Etudiant::classement(int ID) // permet de calculer son classement à un cours
+/*int Etudiant::classement(int ID) // permet de calculer son classement à un cours
 {
     int classement=1;
 
@@ -103,7 +102,7 @@ bool Etudiant::help(int ID) // renvoie True si l'étudiant a besoin d'aide / Fal
     {
         return false;
     }
-};
+};*/
 
 
 

@@ -10,8 +10,9 @@ int main()
     /*Enseignant Rastapopoulos("1");
     cout << Rastapopoulos.getIdue(1) << endl;*/
 
-    Etudiant DavidAnthony("1");
-    cout << DavidAnthony.get_note_cours(0)<< endl;
+    //Etudiant DavidAnthony("1");
+    //cout << DavidAnthony.get_note_cours(0)<< endl;
 
+    cout << "Coucou !" << endl;
     return 0;
 }

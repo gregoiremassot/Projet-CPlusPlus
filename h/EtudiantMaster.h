@@ -9,10 +9,10 @@
 
 using namespace std;
 
-class EtudiantMaster : public Etudiant
+class EtudiantMaster //: public Etudiant
 {
 public:
-    vector<bool> help_tutores(void);
+    //vector<bool> help_tutores(void);
 
 private:
     vector<EtudiantLicence> m_tutores;

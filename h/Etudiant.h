@@ -26,8 +26,8 @@ public:
     Etudiant(string nom_fichier); // Constructeur
     int get_id(void);
     double moyenne(void);
-    int classement(int ID);
-    bool help(int ID);
+    //int classement(int ID);
+    //bool help(int ID);
     string get_name(void);
     double get_note_cours(int code_cours);
 
