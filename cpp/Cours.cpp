@@ -40,6 +40,10 @@ Cours::Cours(string nom_fichier)
 
         getline(fichier, line);
         s = line;
+        m_niveau = s;
+
+        getline(fichier, line);
+        s = line;
 
         while(i < s.length())
         {

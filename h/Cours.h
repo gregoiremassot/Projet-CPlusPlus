@@ -36,6 +36,7 @@ private:
     unsigned int m_code;
     string m_nom;
     int m_id_enseignant;
+    string m_niveau;
     Enseignant* m_enseignant;
 
     vector<int> m_id_eleve;
