@@ -1,9 +1,6 @@
 // Binome : Grégoire MASSOT - David-Anthony SELLEM
 #include <iostream>
-#include "../h/Enseignant.h"
-#include "../h/Cours.h"
-#include "../h/EtudiantLicence.h"
-#include "../h/EtudiantMaster.h"
+#include "../h/Universite.h"
 int main()
 {
     /*Cours Biologie("2");
@@ -12,8 +9,10 @@ int main()
     /*Enseignant Rastapopoulos("2");
     cout << Rastapopoulos.getIdue(0) << endl;*/
 
-    EtudiantMaster DavidAnthony("31");
-    cout << DavidAnthony.get_nom_cours(0)<< endl;
+    /*EtudiantMaster DavidAnthony("31");
+    cout << DavidAnthony.get_nom_cours(0)<< endl;*/
+
+    Universite ISFA("Universite");
 
     //cout << "Coucou !" << endl;
     return 0;

@@ -18,6 +18,7 @@ struct eleve
 {
     Etudiant* e_etudiant;
     double e_note;
+    int id_etudiant;
 };
 
 
