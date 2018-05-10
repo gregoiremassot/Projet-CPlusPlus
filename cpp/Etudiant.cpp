@@ -8,10 +8,12 @@
 #include <fstream>
 using namespace std;
 
+Etudiant::Etudiant() {}
 
 Etudiant::Etudiant(string nom_fichier)
 {
     ifstream fichier("../Universite/Etudiants/" + nom_fichier + ".txt");  // on ouvre en lecture
+
     if(!fichier)
     {
         cout << "Impossible de lire le fichier" << endl;
@@ -116,7 +118,12 @@ string Etudiant::get_name()
     return m_name;
 }
 
-double Etudiant::get_note_cours(int code_cours)
+double Etudiant::get_note_cours(int num_cours)
 {
-    return m_liste_cours[code_cours].note;
+    return m_liste_cours[num_cours].note;
+}
+
+string Etudiant::get_nom_cours(int num_cours)
+{
+    return m_liste_cours[num_cours].nom_cours;
 }

@@ -48,7 +48,7 @@ Enseignant::Enseignant(string nom_fichier)
 
                 nombre += s[i];
                 i++;
-                if(s[i] == ';')
+                if(s[i] == ';' | i == s.length())
                 {
                     stop = 1;
                     m_id_ue.push_back(stoi(nombre));
