@@ -12,9 +12,11 @@ using namespace std;
 class EtudiantMaster : public Etudiant
 {
 public:
-    vector<bool> help_tutores(void);
+    EtudiantMaster(string nom_fichier);
+    //vector<bool> help_tutores(void);
 
 private:
+    vector<int> m_id_tutores;
     vector<EtudiantLicence> m_tutores;
 };
 

@@ -6,13 +6,13 @@
 #include <fstream>
 #include <vector>
 
-class Etudiant
+class Etudiant;
 
-struct cancre
+/*struct cancre
     {
       Etudiant* c_etudiant;
       bool c_help; // True --> c'est un cancre
-    };
+    };*/
 
 Enseignant::Enseignant(string nom_fichier)
 {
@@ -48,7 +48,7 @@ Enseignant::Enseignant(string nom_fichier)
 
                 nombre += s[i];
                 i++;
-                if(s[i] == ';')
+                if(s[i] == ';' | i == s.length())
                 {
                     stop = 1;
                     m_id_ue.push_back(stoi(nombre));
@@ -63,7 +63,7 @@ Enseignant::Enseignant(string nom_fichier)
 
 }
 
-vector<cancre> Enseignant::need_help()
+/*vector<cancre> Enseignant::need_help()
 {
     vector<cancre> need_help;
     cancre temoin;
@@ -82,7 +82,7 @@ vector<cancre> Enseignant::need_help()
         }
     }
     return need_help;
-};
+};*/
 
 int Enseignant::getNumber() {return m_number;};
 string Enseignant::getNom() {return m_name;};

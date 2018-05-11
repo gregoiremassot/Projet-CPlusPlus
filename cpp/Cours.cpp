@@ -40,6 +40,10 @@ Cours::Cours(string nom_fichier)
 
         getline(fichier, line);
         s = line;
+        m_niveau = s;
+
+        getline(fichier, line);
+        s = line;
 
         while(i < s.length())
         {
@@ -50,7 +54,7 @@ Cours::Cours(string nom_fichier)
 
                 nombre += s[i];
                 i++;
-                if(s[i] == ';')
+                if(s[i] == ';' | i == s.length())
                 {
                     stop = 1;
                     m_id_eleve.push_back(stoi(nombre));

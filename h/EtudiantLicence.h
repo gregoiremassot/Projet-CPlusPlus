@@ -7,8 +7,10 @@
 #include "Etudiant.h"
 
 
-class EtudiantLicence : public Etudiant {
-
+class EtudiantLicence : public Etudiant
+{
+public:
+    EtudiantLicence(string nom_fichier);
 };
 
 

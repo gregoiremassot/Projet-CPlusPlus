@@ -8,10 +8,12 @@
 #include <fstream>
 using namespace std;
 
+Etudiant::Etudiant() {}
 
 Etudiant::Etudiant(string nom_fichier)
 {
     ifstream fichier("../Universite/Etudiants/" + nom_fichier + ".txt");  // on ouvre en lecture
+
     if(!fichier)
     {
         cout << "Impossible de lire le fichier" << endl;
@@ -65,7 +67,6 @@ Etudiant::Etudiant(string nom_fichier)
         }
 
 
-
     }
 }
 
@@ -79,7 +80,7 @@ double Etudiant::moyenne(void) // permet de calculer sa moyenne
     return moyenne/m_liste_cours.size();
 };
 
-int Etudiant::classement(int ID) // permet de calculer son classement à un cours
+/*int Etudiant::classement(int ID) // permet de calculer son classement à un cours
 {
     int classement=1;
 
@@ -103,7 +104,7 @@ bool Etudiant::help(int ID) // renvoie True si l'étudiant a besoin d'aide / Fal
     {
         return false;
     }
-};
+};*/
 
 
 
@@ -117,7 +118,12 @@ string Etudiant::get_name()
     return m_name;
 }
 
-double Etudiant::get_note_cours(int code_cours)
+double Etudiant::get_note_cours(int num_cours)
 {
-    return m_liste_cours[code_cours].note;
+    return m_liste_cours[num_cours].note;
+}
+
+string Etudiant::get_nom_cours(int num_cours)
+{
+    return m_liste_cours[num_cours].nom_cours;
 }

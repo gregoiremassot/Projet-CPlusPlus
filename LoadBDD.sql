@@ -115,7 +115,7 @@ SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.nom SEPARATOR ';') AS m
   INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
   INNER JOIN cours ON cours.code = suivre.code_cours
   WHERE etudiant.niveau = 'Licence'
-GROUP BY etudiant.numero, etudiant.nom
+GROUP BY etudiant.numero, etudiant.nom;
 
 -- TXT Cours
 SELECT cours.code, cours.nom, cours.numero_enseignant, cours.niveau, GROUP_CONCAT(suivre.numero_etudiant SEPARATOR ';') AS etudiants
@@ -123,7 +123,31 @@ FROM cours
 INNER JOIN suivre ON suivre.code_cours = cours.code
 GROUP BY cours.code, cours.nom, cours.numero_enseignant, cours.niveau;
 
-SELECT * FROM suivre WHERE suivre.numero_etudiant = 33
+-- TXT Universite
+
+SELECT "Cours", cours.code FROM Cours ORDER BY cours.code
+INTO OUTFILE 'liste_cours.txt'
+FIELDS TERMINATED BY ' '
+LINES TERMINATED BY '\n';
+
+SELECT "Enseignant", enseignant.numero FROM enseignant ORDER BY enseignant.numero
+INTO OUTFILE './liste_enseignants.txt'
+FIELDS TERMINATED BY ' '
+LINES TERMINATED BY '\n';
+
+SELECT "EtudiantMaster", etudiant.numero FROM etudiant WHERE etudiant.niveau = 'Master' ORDER BY etudiant.numero
+INTO OUTFILE './liste_etudiant_master.txt'
+FIELDS TERMINATED BY ' '
+LINES TERMINATED BY '\n';
+
+SELECT "EtudiantLicence", etudiant.numero FROM etudiant WHERE etudiant.niveau = 'Licence' ORDER BY etudiant.numero
+INTO OUTFILE './liste_etudiant_licence.txt'
+FIELDS TERMINATED BY ' '
+LINES TERMINATED BY '\n';
+
+
+
+SELECT * FROM suivre WHERE suivre.numero_etudiant = 33;
 
 
 
