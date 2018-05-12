@@ -48,6 +48,10 @@ Universite::Universite(string nom_fichier)
         {
             getEnseignant(stoi(id))->initialiserPointeursCours(this);
         }
+        else if(type == "Cours")
+        {
+            getCours(stoi(id))->initialiserPointeursEleves(this);
+        }
 
 
 

@@ -13,7 +13,7 @@ using namespace std;
 
 class Etudiant;
 class Enseignant;
-
+class Universite;
 struct eleve
 {
     Etudiant* e_etudiant;
@@ -31,6 +31,7 @@ public:
     int getIdEnseignant();
     int getIdEleve(int i);
     double moyenne(void);
+    void initialiserPointeursEleves(Universite* universite);
     vector<bool> help_cours(void);
 
 private:

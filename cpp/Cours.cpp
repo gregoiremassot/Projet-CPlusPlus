@@ -6,7 +6,7 @@
 #include "../h/Enseignant.h"
 #include <fstream>
 #include <algorithm>
-
+#include "../h/Universite.h"
 using namespace std;
 
 Cours::Cours(string nom_fichier)
@@ -103,3 +103,13 @@ string Cours::getNom() { return m_nom;};
 int Cours::getIdEnseignant() { return m_id_enseignant;};
 int Cours::getIdEleve(int i) {return m_id_eleve[i];};
 
+void Cours::initialiserPointeursEleves(Universite* universite)
+{
+    for(int i = 0; i < m_id_eleve.size(); i++)
+    {
+        if(universite->getEtudiantLicence(m_id_eleve[i]) != 0)
+        {
+            m_eleves.push_back({universite->getEtudiantLicence(m_id_eleve[i]),universite->getEtudiantLicence(m_id_eleve[i])->get_note_cours(m_code),m_id_eleve[i]});
+        }
+    }
+}
