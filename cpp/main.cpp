@@ -10,7 +10,7 @@ int main()
     cout << Rastapopoulos.getIdue(0) << endl;*/
 
     /*EtudiantMaster DavidAnthony("31");
-    cout << DavidAnthony.get_nom_cours(0)<< endl;*/
+    cout << DavidAnthony.moyenne()<< endl;*/
 
     Universite ISFA("Universite");
 

@@ -92,19 +92,14 @@ double Etudiant::moyenne(void) // permet de calculer sa moyenne
         }
     }
     return classement;
-};
-
-bool Etudiant::help(int ID) // renvoie True si l'étudiant a besoin d'aide / False sinon
-{
-  if(m_liste_cours.at(ID).note < 10)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
 };*/
+
+bool Etudiant::help() // renvoie True si l'étudiant a besoin d'aide / False sinon
+{
+  if(moyenne() < 10) return true;
+  else return false;
+
+};
 
 
 
