@@ -1,5 +1,5 @@
 38
 Simon
-Biologie;Droit
+11;15
 17;8
-24;8
+8;24

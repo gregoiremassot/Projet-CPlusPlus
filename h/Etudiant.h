@@ -21,7 +21,7 @@ struct cours_avec_notes
 
 using namespace std;
 class Cours;
-
+class Universite;
 class Etudiant {
 
 public:
@@ -34,9 +34,9 @@ public:
     string get_name(void);
     double get_note_cours(int code_cours);
     string get_nom_cours(int code_cours);
-
+    void initialiserPointeursCours(Universite* universite);
 protected:
-    unsigned int m_id;
+    int m_id;
     string m_name;
     vector<cours_avec_notes> m_liste_cours;
 };

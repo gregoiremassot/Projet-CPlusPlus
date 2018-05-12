@@ -13,11 +13,12 @@ class EtudiantMaster : public Etudiant
 {
 public:
     EtudiantMaster(string nom_fichier);
+    void initialiserPointeursTutores(Universite* universite);
     //vector<bool> help_tutores(void);
 
 private:
     vector<int> m_id_tutores;
-    vector<EtudiantLicence> m_tutores;
+    vector<EtudiantLicence*> m_tutores;
 };
 
 #endif //PROJET_CPP_ETUDIANTMASTER_H

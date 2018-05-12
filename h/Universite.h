@@ -8,6 +8,7 @@
 #include <vector>
 #include "../h/Enseignant.h"
 #include "../h/Cours.h"
+#include "../h/Etudiant.h"
 #include "../h/EtudiantLicence.h"
 #include "../h/EtudiantMaster.h"
 
@@ -28,6 +29,7 @@ public:
     Cours* getCours(int idCours);
     EtudiantLicence* getEtudiantLicence(int idEtudiant);
     EtudiantMaster* getEtudiantMaster(int idEtudiant);
+    Etudiant* getEtudiant(int idEtudiant);
 private:
     vector<Cours*> m_cours;
     vector<EtudiantLicence*> m_etudiantslicence;

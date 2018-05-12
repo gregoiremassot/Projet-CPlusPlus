@@ -1,5 +1,5 @@
 32
 Antoinette
-Biologie;Philo;Histoire;Maths
-8;13;13;10
+17;11;12;18
+13;8;10;13
 

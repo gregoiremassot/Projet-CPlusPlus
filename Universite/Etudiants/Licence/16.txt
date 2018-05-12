@@ -1,4 +1,4 @@
 16
 Fiora
-Micro;Macro;R;Histoire
-20;13;13;2
+4;10;3;8
+13;13;20;2

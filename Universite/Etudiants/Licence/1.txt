@@ -1,4 +1,4 @@
 1
 Marc
-R;Philo;Maths;Histoire
-5;3;5;9
+10;8;7;2
+5;9;3;5

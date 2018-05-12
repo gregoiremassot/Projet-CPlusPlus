@@ -1,4 +1,4 @@
 3
 Grégoire
-Maths;Micro
-20;13
+3;2
+13;20

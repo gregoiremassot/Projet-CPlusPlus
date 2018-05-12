@@ -1,4 +1,4 @@
 29
 Pierre
-Histoire;R;Philo;Maths
-12;11;4;19
+2;7;8;10
+19;4;12;11

@@ -1,4 +1,4 @@
 13
 Allain
-Droit;Macro;Histoire;Lettres;Micro
-6;9;7;18;19
+6;3;5;4;8
+18;19;6;9;7

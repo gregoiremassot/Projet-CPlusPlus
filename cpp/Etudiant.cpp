@@ -4,6 +4,7 @@
 
 #include "../h/Etudiant.h"
 #include "../h/Cours.h"
+#include "../h/Universite.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -115,10 +116,29 @@ string Etudiant::get_name()
 
 double Etudiant::get_note_cours(int num_cours)
 {
-    return m_liste_cours[num_cours].note;
+    int i = 0;
+    while (i < m_liste_cours.size())
+    {
+        if(num_cours == stoi(m_liste_cours[i].nom_cours))
+            return m_liste_cours[i].note;
+
+        i++;
+    }
+    return 0;
 }
 
 string Etudiant::get_nom_cours(int num_cours)
 {
     return m_liste_cours[num_cours].nom_cours;
+}
+
+void Etudiant::initialiserPointeursCours(Universite* universite)
+{
+    for(int i = 0; i < m_liste_cours.size(); i++)
+    {
+        if(universite->getCours(stoi(m_liste_cours[i].nom_cours)) != 0)
+        {
+            m_liste_cours[i].cours = universite->getCours(stoi(m_liste_cours[i].nom_cours));
+        }
+    }
 }

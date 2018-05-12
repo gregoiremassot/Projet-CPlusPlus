@@ -1,4 +1,4 @@
 10
 Sophie
-Biologie;R
+1;10
 10;19

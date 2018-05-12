@@ -1,4 +1,4 @@
 14
 Laura
-Philo;Maths;Macro;Lettres
-2;18;2;2
+2;7;4;6
+18;2;2;2

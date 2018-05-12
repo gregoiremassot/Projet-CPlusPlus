@@ -2,10 +2,11 @@
 // Updated by Davidan97 on 6/05/2018.
 //
 
-#include "../h/EtudiantMaster.h"
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include "../h/EtudiantMaster.h"
+#include "../h/Universite.h"
 
 using namespace std;
 
@@ -25,9 +26,11 @@ EtudiantMaster::EtudiantMaster(string nom_fichier)
         int stop;
         string note;
         string tutore;
+
         getline(fichier, line);
         s = line;
         m_id = stoi(s);
+
 
         getline(fichier, line);
         s = line;
@@ -106,6 +109,20 @@ EtudiantMaster::EtudiantMaster(string nom_fichier)
 
     }
 }
+
+
+void EtudiantMaster::initialiserPointeursTutores(Universite* universite)
+{
+    for(int i = 0; i < m_id_tutores.size(); i++)
+    {
+        if(universite->getEtudiantLicence(m_id_tutores[i]) != 0)
+        {
+            m_tutores.push_back(universite->getEtudiantLicence(m_id_tutores[i]));
+        }
+    }
+}
+
+
 /*EtudiantMaster::help_tutores(void)
 {
   vector<bool> help_tutores;

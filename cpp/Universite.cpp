@@ -53,8 +53,16 @@ Universite::Universite(string nom_fichier)
             getCours(stoi(id))->initialiserPointeursEleves(this);
         }
 
+        else if(type == "EtudiantLicence")
+        {
+            getEtudiant(stoi(id))->initialiserPointeursCours(this);
+        }
 
-
+        else if(type == "EtudiantMaster")
+        {
+            getEtudiant(stoi(id))->initialiserPointeursCours(this);
+            getEtudiantMaster(stoi(id))->initialiserPointeursTutores(this);
+        }
     }
 }
 
@@ -83,6 +91,30 @@ Cours* Universite::getCours(int idCours)
         }
         i++;
     }
+    return 0;
+}
+
+Etudiant* Universite::getEtudiant(int idEtudiant)
+{
+    int i = 0;
+    while( i < m_etudiantslicence.size())
+    {
+        if(m_etudiantslicence[i]->get_id() == idEtudiant)
+        {
+            return m_etudiantslicence[i];
+        }
+        i++;
+    }
+    i = 0;
+    while( i < m_etudiantsmaster.size())
+    {
+        if(m_etudiantsmaster[i]->get_id() == idEtudiant)
+        {
+            return m_etudiantsmaster[i];
+        }
+        i++;
+    }
+
     return 0;
 }
 

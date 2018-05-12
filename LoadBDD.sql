@@ -97,7 +97,7 @@ GROUP BY enseignant.numero, enseignant.nom;
 
 -- TXT Etudiant Master
 SELECT A.numero, A.nom, A.matieres, A.notes, B.filleuls FROM
-  (SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.nom SEPARATOR ';') AS matieres, GROUP_CONCAT(suivre.note SEPARATOR ';') AS notes
+  (SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.code SEPARATOR ';') AS matieres, GROUP_CONCAT(suivre.note SEPARATOR ';') AS notes
   FROM etudiant
   INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
   INNER JOIN cours ON cours.code = suivre.code_cours
@@ -110,7 +110,7 @@ GROUP BY master.numero) B
 ON A.numero = B.numero;
 
 -- TXT Etudiant Licence
-SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.nom SEPARATOR ';') AS matieres, GROUP_CONCAT(suivre.note SEPARATOR ';') AS notes
+SELECT etudiant.numero, etudiant.nom, GROUP_CONCAT(cours.code SEPARATOR ';') AS matieres, GROUP_CONCAT(suivre.note SEPARATOR ';') AS notes
   FROM etudiant
   INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
   INNER JOIN cours ON cours.code = suivre.code_cours
@@ -145,9 +145,10 @@ INTO OUTFILE './liste_etudiant_licence.txt'
 FIELDS TERMINATED BY ' '
 LINES TERMINATED BY '\n';
 
+-- Requetes de comparaison
 
-
-SELECT * FROM suivre WHERE suivre.numero_etudiant = 33;
+SELECT AVG(note) FROM suivre WHERE code_cours = 8
+GROUP BY code_cours;
 
 
 

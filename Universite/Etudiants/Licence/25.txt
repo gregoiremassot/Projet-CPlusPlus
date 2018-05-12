@@ -1,4 +1,4 @@
 25
 François
-Maths;Histoire
-17;3
+8;2
+3;17

@@ -73,7 +73,8 @@ double Cours::moyenne(void)
     double moyenne=0;
     for(int i=0; i<m_eleves.size(); i++)
     {
-        moyenne+=m_eleves.at(i).e_note;
+        //cout << m_eleves[i].e_note << endl;
+        moyenne+= m_eleves[i].e_note;
     }
     moyenne/=m_eleves.size();
     return moyenne;

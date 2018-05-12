@@ -27,24 +27,25 @@ fichier.close()
 fichier = open("./Universite/Etudiants/EtudiantsLicence.csv", "r")
 n = 4
 lines = fichier.readlines()
-path = "./Universite/Etudiants/"
+path = "./Universite/Etudiants/Licence/"
 print(int(len(lines)/n))
 for i in range(0,int(len(lines)/n)):
     fichier_ecrire = open(path + lines[0 + n*i][0:-1] + ".txt", "w")
     for j in range(0, n):
         fichier_ecrire.write(lines[j + n*i])
+    fichier_ecrire.close()
 
 fichier.close()
 
 fichier = open("./Universite/Etudiants/EtudiantsMaster.csv", "r")
 n = 5
 lines = fichier.readlines()
-path = "./Universite/Etudiants/"
+path = "./Universite/Etudiants/Master/"
 print(int(len(lines)/n))
 for i in range(0,int(len(lines)/n)):
     fichier_ecrire = open(path + lines[0 + n*i][0:-1] + ".txt", "w")
     for j in range(0, n):
         fichier_ecrire.write(lines[j + n*i])
-
+    fichier_ecrire.close()
 fichier.close()
 

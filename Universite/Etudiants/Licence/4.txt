@@ -1,4 +1,4 @@
 4
 Xavier
-Philo;Lettres
-18;20
+6;7
+20;18

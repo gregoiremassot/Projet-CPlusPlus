@@ -1,4 +1,4 @@
 26
 Louis
-Maths;Philo;Lettres
-10;15;16
+7;2;6
+15;10;16
