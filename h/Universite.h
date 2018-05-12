@@ -23,9 +23,15 @@ class Universite
 public:
     Universite();
     Universite(string nom_fichier);
+
+    Enseignant* getEnseignant(int idEnseignant);
+    Cours* getCours(int idCours);
+    EtudiantLicence* getEtudiantLicence(int idEtudiant);
+    EtudiantMaster* getEtudiantMaster(int idEtudiant);
 private:
     vector<Cours*> m_cours;
-    vector<Etudiant*> m_etudiants;
+    vector<EtudiantLicence*> m_etudiantslicence;
+    vector<EtudiantMaster*> m_etudiantsmaster;
     vector<Enseignant*> m_enseignants;
 };
 

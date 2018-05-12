@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-
+#include "../h/Universite.h"
 class Etudiant;
 
 /*struct cancre
@@ -87,3 +87,15 @@ Enseignant::Enseignant(string nom_fichier)
 int Enseignant::getNumber() {return m_number;};
 string Enseignant::getNom() {return m_name;};
 int Enseignant::getIdue(int nombre) {return m_id_ue[nombre];};
+vector<int> Enseignant::get_vector_id_ue() {return m_id_ue;}
+
+void Enseignant::initialiserPointeursCours(Universite* universite)
+{
+    for(int i = 0; i < m_id_ue.size(); i++)
+    {
+        if(universite->getCours(m_id_ue[i]) != 0)
+        {
+            m_ue.push_back(universite->getCours(m_id_ue[i]));
+        }
+    }
+}

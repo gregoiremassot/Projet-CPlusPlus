@@ -30,7 +30,7 @@ public:
     int get_id(void);
     double moyenne(void);
     //int classement(int ID);
-    //bool help(int ID);
+    bool help();
     string get_name(void);
     double get_note_cours(int code_cours);
     string get_nom_cours(int code_cours);

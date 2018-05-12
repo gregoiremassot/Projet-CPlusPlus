@@ -9,6 +9,7 @@
 
 using namespace std;
 class Cours;
+class Universite;
 
 class Enseignant {
 
@@ -17,6 +18,8 @@ public:
     int getNumber();
     string getNom();
     int getIdue(int nombre);
+    vector<int> get_vector_id_ue();
+    void initialiserPointeursCours(Universite* universite);
 private:
     unsigned int m_number;
     string m_name;

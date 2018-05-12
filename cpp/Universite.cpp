@@ -28,12 +28,84 @@ Universite::Universite(string nom_fichier)
         }
         else if(type == "EtudiantLicence")
         {
-            m_etudiants.push_back(new EtudiantLicence(id));
+            m_etudiantslicence.push_back(new EtudiantLicence(id));
         }
         else if(type == "EtudiantMaster")
         {
-            m_etudiants.push_back(new EtudiantMaster(id));
+            m_etudiantsmaster.push_back(new EtudiantMaster(id));
         }
 
     }
+    Flux.seekg(0, ios::beg);
+    Flux >> n;
+
+    for(int i=0; i<n; i++)
+    {
+        Flux >> type;
+        Flux >> id;
+
+        if(type == "Enseignant")
+        {
+            getEnseignant(stoi(id))->initialiserPointeursCours(this);
+        }
+
+
+
+    }
+}
+
+Enseignant* Universite::getEnseignant(int idEnseignant)
+{
+    int i = 0;
+    while( i < m_enseignants.size())
+    {
+        if(m_enseignants[i]->getNumber() == idEnseignant)
+        {
+            return m_enseignants[i];
+        }
+        i++;
+    }
+    return 0;
+}
+
+Cours* Universite::getCours(int idCours)
+{
+    int i = 0;
+    while( i < m_cours.size())
+    {
+        if(m_cours[i]->getCode() == idCours)
+        {
+            return m_cours[i];
+        }
+        i++;
+    }
+    return 0;
+}
+
+EtudiantLicence* Universite::getEtudiantLicence(int idEtudiant)
+{
+    int i = 0;
+    while( i < m_etudiantslicence.size())
+    {
+        if(m_etudiantslicence[i]->get_id() == idEtudiant)
+        {
+            return m_etudiantslicence[i];
+        }
+        i++;
+    }
+    return 0;
+}
+
+EtudiantMaster* Universite::getEtudiantMaster(int idEtudiant)
+{
+    int i = 0;
+    while( i < m_etudiantsmaster.size())
+    {
+        if(m_etudiantsmaster[i]->get_id() == idEtudiant)
+        {
+            return m_etudiantsmaster[i];
+        }
+        i++;
+    }
+    return 0;
 }
