@@ -14,6 +14,7 @@ using namespace std;
 class Etudiant;
 class Enseignant;
 class Universite;
+
 struct eleve
 {
     Etudiant* e_etudiant;
@@ -21,6 +22,13 @@ struct eleve
     int id_etudiant;
 };
 
+struct less_than_note
+{
+    inline bool operator() (const eleve& struct1, const eleve& struct2)
+    {
+        return (struct1.e_note > struct2.e_note);
+    }
+};
 
 class Cours
 {
@@ -32,7 +40,8 @@ public:
     int getIdEleve(int i);
     double moyenne(void);
     void initialiserPointeursEleves(Universite* universite);
-    vector<bool> help_cours(void);
+    vector<string> help_cours(void);
+    void getClassementCours();
 
 private:
     unsigned int m_code;

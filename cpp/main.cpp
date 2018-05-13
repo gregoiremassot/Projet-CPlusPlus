@@ -13,8 +13,12 @@ int main()
     cout << DavidAnthony.moyenne()<< endl;*/
 
     Universite ISFA("Universite");
-    cout << ISFA.getCours(8)->moyenne() << endl;
 
-    //cout << "Coucou !" << endl;
+    //cout << ISFA.getCours(8)->moyenne() << endl;
+    //ISFA.getCours(8)->help_cours();
+    //cout << ISFA.getEtudiant(33)->moyenne() << endl;
+    //ISFA.getEtudiantMaster(35)->getTutores();
+    ISFA.getCours(8)->getClassementCours();
+    
     return 0;
 }

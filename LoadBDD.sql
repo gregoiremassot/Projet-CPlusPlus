@@ -145,10 +145,32 @@ INTO OUTFILE './liste_etudiant_licence.txt'
 FIELDS TERMINATED BY ' '
 LINES TERMINATED BY '\n';
 
--- Requetes de comparaison
+-- Requetes de comparaison --
 
+-- Moyenne - Cours
 SELECT AVG(note) FROM suivre WHERE code_cours = 8
 GROUP BY code_cours;
+
+-- Etudiants en difficulté - Cours
+SELECT suivre.note, etudiant.nom FROM suivre
+INNER JOIN etudiant ON etudiant.numero = suivre.numero_etudiant
+WHERE suivre.code_cours = 8 AND suivre.note < 10;
+
+-- Classement Etudiants - Cours
+SELECT
+
+
+-- Etudiants en difficulté - Enseignant
+
+-- Moyenne - Etudiant
+SELECT AVG(note) FROM suivre WHERE suivre.numero_etudiant = 33;
+
+-- Classements - Etudiant
+
+-- EtudiantsTutores - EtudiantMaster
+SELECT * FROM etudiant WHERE id_tuteur=35;
+
+
 
 
 

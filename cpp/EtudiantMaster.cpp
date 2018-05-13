@@ -122,6 +122,16 @@ void EtudiantMaster::initialiserPointeursTutores(Universite* universite)
     }
 }
 
+vector<EtudiantLicence*> EtudiantMaster::getTutores()
+{
+    for(int i=0; i < m_tutores.size(); i++)
+    {
+        cout << "id  nom" << endl;
+        cout << m_tutores[i]->get_id() << "  " << m_tutores[i]->get_name() << endl;
+    }
+    return m_tutores;
+}
+
 
 /*EtudiantMaster::help_tutores(void)
 {

@@ -15,6 +15,7 @@ public:
     EtudiantMaster(string nom_fichier);
     void initialiserPointeursTutores(Universite* universite);
     //vector<bool> help_tutores(void);
+    vector<EtudiantLicence*> getTutores();
 
 private:
     vector<int> m_id_tutores;

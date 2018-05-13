@@ -8,12 +8,6 @@
 #include "../h/Universite.h"
 class Etudiant;
 
-/*struct cancre
-    {
-      Etudiant* c_etudiant;
-      bool c_help; // True --> c'est un cancre
-    };*/
-
 Enseignant::Enseignant(string nom_fichier)
 {
     ifstream fichier("../Universite/Enseignants/" + nom_fichier + ".txt");  // on ouvre en lecture

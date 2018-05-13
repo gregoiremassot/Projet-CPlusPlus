@@ -6,6 +6,7 @@
 #include "../h/Enseignant.h"
 #include <fstream>
 #include <algorithm>
+#include <functional>
 #include "../h/Universite.h"
 using namespace std;
 
@@ -80,24 +81,20 @@ double Cours::moyenne(void)
     return moyenne;
 }
 
-vector<bool> Cours::help_cours(void) // renvoit True (besoin d'aide) or False pour chaque étudiant du cours
+vector<string> Cours::help_cours(void) // renvoie True (besoin d'aide) or False pour chaque étudiant du cours
 {
-    vector<bool> help_cours;
+    vector<string> help_cours;
 
-    /*for(int i=0;i<m_eleve.size();i++)
+    for(int i=0;i<m_eleves.size();i++)
     {
-        if(m_eleves.at(i).e_notes <10)
+        if(m_eleves[i].e_note <10)
         {
-            help_cours.push_back(true);
+            help_cours.push_back(m_eleves[i].e_etudiant->get_name());
+            cout << m_eleves[i].e_etudiant->get_name() << endl;
         }
-        else
-        {
-            help_cours.push_back(false);
-        }
-    }*/
+    }
         return help_cours;
 };
-
 
 int Cours::getCode() { return m_code;};
 string Cours::getNom() { return m_nom;};
@@ -113,4 +110,13 @@ void Cours::initialiserPointeursEleves(Universite* universite)
             m_eleves.push_back({universite->getEtudiantLicence(m_id_eleve[i]),universite->getEtudiantLicence(m_id_eleve[i])->get_note_cours(m_code),m_id_eleve[i]});
         }
     }
+}
+
+void Cours::getClassementCours() {
+    sort(m_eleves.begin(), m_eleves.end(), less_than_note());
+
+    for (int i = 0; i < m_eleves.size(); i++) {
+        cout << m_eleves[i].e_etudiant->get_name() << "  " << m_eleves[i].e_note << endl;
+    }
+
 }
