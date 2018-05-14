@@ -42,7 +42,7 @@ public:
     void initialiserPointeursEleves(Universite* universite);
     vector<string> help_cours(void);
     void getClassementCours();
-
+    vector<eleve> getEleves();
 private:
     unsigned int m_code;
     string m_nom;

@@ -120,3 +120,8 @@ void Cours::getClassementCours() {
     }
 
 }
+
+vector<eleve> Cours::getEleves()
+{
+    return m_eleves;
+}

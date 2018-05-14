@@ -7,6 +7,8 @@
 #include "../h/Universite.h"
 #include <iostream>
 #include <fstream>
+#include <c++/algorithm>
+
 using namespace std;
 
 Etudiant::Etudiant() {}
@@ -139,6 +141,33 @@ void Etudiant::initialiserPointeursCours(Universite* universite)
         if(universite->getCours(stoi(m_liste_cours[i].nom_cours)) != 0)
         {
             m_liste_cours[i].cours = universite->getCours(stoi(m_liste_cours[i].nom_cours));
+        }
+    }
+}
+
+void Etudiant::getClassementCours(int id_cours)
+{
+    int classement;
+    vector<eleve> eleves_cours;
+    bool continuer = true;
+    for(int i=0; i<m_liste_cours.size(); i++)
+    {
+        if(m_liste_cours[i].cours->getCode() == id_cours)
+        {
+            eleves_cours = m_liste_cours[i].cours->getEleves();
+            sort(eleves_cours.begin(), eleves_cours.end(), less_than_note());
+
+            continuer = true;
+            classement=1;
+            while(continuer)
+            {
+                if(eleves_cours[classement-1].id_etudiant == get_id())
+                {
+                    continuer = false;
+                }
+                classement++;
+            }
+            cout << classement << endl;
         }
     }
 }

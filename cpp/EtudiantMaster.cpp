@@ -126,8 +126,11 @@ vector<EtudiantLicence*> EtudiantMaster::getTutores()
 {
     for(int i=0; i < m_tutores.size(); i++)
     {
-        cout << "id  nom" << endl;
-        cout << m_tutores[i]->get_id() << "  " << m_tutores[i]->get_name() << endl;
+        if(m_tutores[i]->moyenne() < 10)
+        {
+            cout << "id  nom" << endl;
+            cout << m_tutores[i]->get_id() << "  " << m_tutores[i]->get_name() << endl;
+        }
     }
     return m_tutores;
 }

@@ -20,6 +20,7 @@ public:
     int getIdue(int nombre);
     vector<int> get_vector_id_ue();
     void initialiserPointeursCours(Universite* universite);
+    void afficherEtudiantDifficulte();
 private:
     unsigned int m_number;
     string m_name;

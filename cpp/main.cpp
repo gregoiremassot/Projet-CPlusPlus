@@ -18,7 +18,9 @@ int main()
     //ISFA.getCours(8)->help_cours();
     //cout << ISFA.getEtudiant(33)->moyenne() << endl;
     //ISFA.getEtudiantMaster(35)->getTutores();
-    ISFA.getCours(8)->getClassementCours();
+    //ISFA.getCours(8)->getClassementCours();
+    //ISFA.getEnseignant(2)->afficherEtudiantDifficulte();
+    //ISFA.getEtudiant(2)->getClassementCours(7);
     
     return 0;
 }

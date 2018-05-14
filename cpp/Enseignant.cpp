@@ -93,3 +93,14 @@ void Enseignant::initialiserPointeursCours(Universite* universite)
         }
     }
 }
+
+void Enseignant::afficherEtudiantDifficulte()
+{
+    for(int i=0; i < m_ue.size(); i++)
+    {
+        for(int j=0; j< m_ue[i]->help_cours().size();j++)
+        {
+            cout << m_ue[i]->help_cours()[j] << endl;
+        }
+    }
+}
