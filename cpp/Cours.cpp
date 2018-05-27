@@ -114,9 +114,9 @@ void Cours::initialiserPointeursEleves(Universite* universite)
 
 void Cours::getClassementCours() {
     sort(m_eleves.begin(), m_eleves.end(), less_than_note());
-
+    cout << "Rang Nom Note" << endl;
     for (int i = 0; i < m_eleves.size(); i++) {
-        cout << m_eleves[i].e_etudiant->get_name() << "  " << m_eleves[i].e_note << endl;
+        cout << i+1 << " " << m_eleves[i].e_etudiant->get_name() << "  " << m_eleves[i].e_note << endl;
     }
 
 }

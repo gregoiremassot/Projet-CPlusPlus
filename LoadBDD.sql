@@ -148,7 +148,7 @@ LINES TERMINATED BY '\n';
 -- Requetes de comparaison --
 
 -- Moyenne - Cours
-SELECT AVG(note) FROM suivre WHERE code_cours = 8
+SELECT AVG(note) FROM suivre WHERE code_cours = 4
 GROUP BY code_cours;
 
 -- Etudiants en difficulté - Cours
@@ -157,8 +157,12 @@ INNER JOIN etudiant ON etudiant.numero = suivre.numero_etudiant
 WHERE suivre.code_cours = 8 AND suivre.note < 10;
 
 -- Classement Etudiants - Cours
-SELECT
+SELECT etudiant.numero, etudiant.nom, suivre.code_cours, suivre.note FROM etudiant
+INNER JOIN suivre ON suivre.numero_etudiant = etudiant.numero
+WHERE code_cours = 2
+ORDER BY note DESC;
 
+SHOW TABLES ;
 
 -- Etudiants en difficulté - Enseignant
 
@@ -168,7 +172,10 @@ SELECT AVG(note) FROM suivre WHERE suivre.numero_etudiant = 33;
 -- Classements - Etudiant
 
 -- EtudiantsTutores - EtudiantMaster
-SELECT * FROM etudiant WHERE id_tuteur=35;
+SELECT etudiant.numero, etudiant.nom, etudiant.niveau, etudiant.id_tuteur, AVG(suivre.note) FROM etudiant
+INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
+WHERE etudiant.id_tuteur=34
+GROUP BY etudiant.numero;
 
 
 

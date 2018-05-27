@@ -75,12 +75,15 @@ Etudiant::Etudiant(string nom_fichier)
 
 double Etudiant::moyenne(void) // permet de calculer sa moyenne
 {
-    double moyenne;
+    double moyenne = 0;
     for (int k=0; k<m_liste_cours.size(); k++)
     {
-        moyenne += m_liste_cours.at(k).note;
+        moyenne += m_liste_cours[k].note;
     }
-    return moyenne/m_liste_cours.size();
+    if(m_liste_cours.size() > 0)
+        return moyenne/m_liste_cours.size();
+    else
+        return 0;
 };
 
 /*int Etudiant::classement(int ID) // permet de calculer son classement à un cours
@@ -161,13 +164,17 @@ void Etudiant::getClassementCours(int id_cours)
             classement=1;
             while(continuer)
             {
+                //cout << classement << endl;
                 if(eleves_cours[classement-1].id_etudiant == get_id())
                 {
                     continuer = false;
                 }
-                classement++;
+                else
+                {
+                    classement++;
+                }
             }
-            cout << classement << endl;
+            cout << "Classement : " << classement << endl;
         }
     }
 }

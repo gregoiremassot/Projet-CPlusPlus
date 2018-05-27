@@ -122,17 +122,16 @@ void EtudiantMaster::initialiserPointeursTutores(Universite* universite)
     }
 }
 
-vector<EtudiantLicence*> EtudiantMaster::getTutores()
+void EtudiantMaster::getTutores()
 {
+    cout << "id  nom moyenne" << endl;
     for(int i=0; i < m_tutores.size(); i++)
     {
-        if(m_tutores[i]->moyenne() < 10)
+        if(m_tutores[i]->moyenne() <= 10)
         {
-            cout << "id  nom" << endl;
-            cout << m_tutores[i]->get_id() << "  " << m_tutores[i]->get_name() << endl;
+            cout << m_tutores[i]->get_id() << "  " << m_tutores[i]->get_name() << " " << m_tutores[i]->moyenne() << endl;
         }
     }
-    return m_tutores;
 }
 
 
