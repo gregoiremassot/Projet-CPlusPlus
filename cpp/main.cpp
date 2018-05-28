@@ -75,8 +75,12 @@ int main()
 
             case 7:
                 cout << "Donner l'ID du cours" << endl;
-                cin >> idEtudiant;
-                ISFA.getCours(idEtudiant)->help_cours();
+                cin >> idCours;
+                cout << "Etudiant" << endl;
+                for(int k =0; k<ISFA.getCours(idCours)->help_cours().size();k++)
+                {
+                    cout << ISFA.getCours(idCours)->help_cours()[k] << endl;
+                }
                 break;
 
             case 8:

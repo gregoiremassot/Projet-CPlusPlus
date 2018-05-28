@@ -151,20 +151,26 @@ LINES TERMINATED BY '\n';
 SELECT AVG(note) FROM suivre WHERE code_cours = 4
 GROUP BY code_cours;
 
--- Etudiants en difficulté - Cours
+-- 6- Classement Etudiants - Cours
+SELECT etudiant.numero, etudiant.nom, suivre.code_cours, suivre.note FROM etudiant
+  INNER JOIN suivre ON suivre.numero_etudiant = etudiant.numero
+WHERE code_cours = 6
+ORDER BY note DESC;
+
+-- 7- Etudiants en difficulté - Cours
 SELECT suivre.note, etudiant.nom FROM suivre
 INNER JOIN etudiant ON etudiant.numero = suivre.numero_etudiant
-WHERE suivre.code_cours = 8 AND suivre.note < 10;
+WHERE suivre.code_cours = 12 AND suivre.note < 10;
 
--- Classement Etudiants - Cours
-SELECT etudiant.numero, etudiant.nom, suivre.code_cours, suivre.note FROM etudiant
-INNER JOIN suivre ON suivre.numero_etudiant = etudiant.numero
-WHERE code_cours = 2
-ORDER BY note DESC;
+-- 8- Etudiants en difficulté - Enseignant
+SELECT suivre.code_cours, etudiant.nom, enseignant.numero, suivre.note FROM suivre
+INNER JOIN etudiant ON etudiant.numero = suivre.numero_etudiant
+INNER JOIN cours ON cours.code = suivre.code_cours
+INNER JOIN enseignant ON enseignant.numero = cours.numero_enseignant
+WHERE enseignant.numero=2 AND suivre.note < 10;
 
 SHOW TABLES ;
 
--- Etudiants en difficulté - Enseignant
 
 -- Moyenne - Etudiant
 SELECT AVG(note) FROM suivre WHERE suivre.numero_etudiant = 33;

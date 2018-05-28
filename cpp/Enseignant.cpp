@@ -80,7 +80,7 @@ void Enseignant::afficherEtudiantDifficulte()
     {
         for(int j=0; j< m_ue[i]->help_cours().size();j++)
         {
-            cout << m_ue[i]->getCode() << " " << m_ue[i]->getNom() << m_ue[i]->help_cours()[j] << endl;
+            cout << m_ue[i]->getCode() << " " << m_ue[i]->getNom() << " " << m_ue[i]->help_cours()[j] << endl;
         }
     }
 }
