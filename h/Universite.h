@@ -30,6 +30,10 @@ public:
     EtudiantLicence* getEtudiantLicence(int idEtudiant);
     EtudiantMaster* getEtudiantMaster(int idEtudiant);
     Etudiant* getEtudiant(int idEtudiant);
+    void afficherEtudiants();
+    void afficherCours();
+    void afficherEnseignants();
+    void afficherNotes();
 private:
     vector<Cours*> m_cours;
     vector<EtudiantLicence*> m_etudiantslicence;

@@ -5,15 +5,6 @@
 using namespace std;
 int main()
 {
-    /*Cours Biologie("2");
-    cout << Biologie.getIdEleve(8);*/
-
-    /*Enseignant Rastapopoulos("2");
-    cout << Rastapopoulos.getIdue(0) << endl;*/
-
-    /*EtudiantLicence DavidAnthony("1");
-    cout << DavidAnthony.moyenne()<< endl;*/
-
     Universite ISFA("Universite");
     int continuer = 1;
     int choix;
@@ -30,7 +21,12 @@ int main()
         cout << "6- Afficher le classement des étudiants sur un Cours" << endl;
         cout << "7- Afficher les étudiants en difficulté dans un cours" << endl;
         cout << "8- Afficher les étudiants en difficulté dans des cours prodigués par un enseignant" << endl;
+        cout << "10- Afficher la liste des étudiants" << endl;
+        cout << "11- Afficher la liste des cours" << endl;
+        cout << "12- Afficher la liste des enseignants" << endl;
+        cout << "13- Afficher la liste des notes" << endl;
 
+        cout << "Choix : ";
         cin >> choix;
 
         switch(choix)
@@ -89,20 +85,28 @@ int main()
                 ISFA.getEnseignant(idEtudiant)->afficherEtudiantDifficulte();
                 break;
 
+            case 10:
+                ISFA.afficherEtudiants();
+                break;
+
+            case 11:
+                ISFA.afficherCours();
+                break;
+
+            case 12:
+                ISFA.afficherEnseignants();
+                break;
+
+            case 13:
+                ISFA.afficherNotes();
+                break;
+
             default :
                 continuer = 0;
                 break;
         }
         cout << endl;
     }
-
-    //cout << ISFA.getCours(8)->moyenne() << endl;
-    //ISFA.getCours(8)->help_cours();
-    //cout << ISFA.getEtudiant(33)->moyenne() << endl;
-    ISFA.getEtudiantMaster(37)->getTutores();
-    //ISFA.getCours(8)->getClassementCours();
-    //ISFA.getEnseignant(2)->afficherEtudiantDifficulte();
-    //ISFA.getEtudiant(2)->getClassementCours(7);
 
     return 0;
 }

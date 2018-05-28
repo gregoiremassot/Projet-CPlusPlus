@@ -145,3 +145,47 @@ EtudiantMaster* Universite::getEtudiantMaster(int idEtudiant)
     }
     return 0;
 }
+
+void Universite::afficherEtudiants()
+{
+    cout << "ID Nom Niveau" << endl;
+    for(int i = 0; i < m_etudiantslicence.size(); i++)
+    {
+        cout << m_etudiantslicence[i]->get_id() << " " << m_etudiantslicence[i]->get_name() << " Licence" << endl;
+    }
+
+    for(int i = 0; i < m_etudiantsmaster.size(); i++)
+    {
+        cout << m_etudiantsmaster[i]->get_id() << " " << m_etudiantsmaster[i]->get_name() << " Master" << endl;
+    }
+}
+
+void Universite::afficherCours()
+{
+    cout << "ID Nom" << endl;
+    for(int i=0; i<m_cours.size(); i++)
+    {
+        cout << m_cours[i]->getCode() << " " << m_cours[i]->getNom() << endl;
+    }
+}
+
+void Universite::afficherEnseignants()
+{
+    cout << "ID Nom" << endl;
+    for(int i=0; i<m_enseignants.size(); i++)
+    {
+        cout << m_enseignants[i]->getNumber() << " " << m_enseignants[i]->getNom() << endl;
+    }
+}
+
+void Universite::afficherNotes()
+{
+    for(int i=0; i<m_cours.size(); i++)
+    {
+        cout << "IDCours IDEnseignant IDEtudiant Note" << endl;
+        for(int j=0; j<m_cours[i]->getEleves().size(); j++)
+        {
+            cout << m_cours[i]->getCode() << " " << m_cours[i]->getIdEnseignant() << " " << m_cours[i]->getEleves()[j].id_etudiant << " " << m_cours[i]->getEleves()[j].e_note << endl;
+        }
+    }
+}

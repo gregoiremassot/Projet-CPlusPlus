@@ -109,6 +109,11 @@ void Cours::initialiserPointeursEleves(Universite* universite)
         {
             m_eleves.push_back({universite->getEtudiantLicence(m_id_eleve[i]),universite->getEtudiantLicence(m_id_eleve[i])->get_note_cours(m_code),m_id_eleve[i]});
         }
+
+        else if(universite->getEtudiantMaster(m_id_eleve[i]) != 0)
+        {
+            m_eleves.push_back({universite->getEtudiantMaster(m_id_eleve[i]),universite->getEtudiantMaster(m_id_eleve[i])->get_note_cours(m_code),m_id_eleve[i]});
+        }
     }
 }
 

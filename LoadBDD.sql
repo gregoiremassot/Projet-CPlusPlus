@@ -177,6 +177,8 @@ INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
 WHERE etudiant.id_tuteur=34
 GROUP BY etudiant.numero;
 
+SELECT * FROM suivre;
+
 
 
 
