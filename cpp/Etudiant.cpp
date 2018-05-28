@@ -7,7 +7,7 @@
 #include "../h/Universite.h"
 #include <iostream>
 #include <fstream>
-#include <c++/algorithm>
+#include <algorithm>
 
 using namespace std;
 
