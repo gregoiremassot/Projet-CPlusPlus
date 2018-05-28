@@ -43,6 +43,7 @@ public:
     vector<string> help_cours(void);
     void getClassementCours();
     vector<eleve> getEleves();
+    void modifierNote(int idEleve, double nouvelleNote);
 private:
     unsigned int m_code;
     string m_nom;

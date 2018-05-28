@@ -86,20 +86,6 @@ double Etudiant::moyenne(void) // permet de calculer sa moyenne
         return 0;
 };
 
-/*int Etudiant::classement(int ID) // permet de calculer son classement à un cours
-{
-    int classement=1;
-
-    for (i=0; i<m_liste.cours.at(ID).cours.m_eleve.size(); i++) // pour chacun des élèves du cours
-    {
-        if (m_liste.cours.at(ID).cours.m_eleve.at(i).m_note > m_liste_cours.at(ID).note)
-        {
-            classement++;
-        }
-    }
-    return classement;
-};*/
-
 bool Etudiant::help() // renvoie True si l'étudiant a besoin d'aide / False sinon
 {
   if(moyenne() < 10) return true;
@@ -175,6 +161,17 @@ void Etudiant::getClassementCours(int id_cours)
                 }
             }
             cout << "Classement : " << classement << endl;
+        }
+    }
+}
+
+void Etudiant::modifierNoteCours(int idCours, double nouvelleNote)
+{
+    for(int i=0; i < m_liste_cours.size(); i++)
+    {
+        if(m_liste_cours[i].cours->getCode() == idCours)
+        {
+            m_liste_cours[i].note = nouvelleNote;
         }
     }
 }

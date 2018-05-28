@@ -17,8 +17,8 @@ int main()
     Universite ISFA("Universite");
     int continuer = 1;
     int choix;
-    int id, idCours;
-
+    int idEtudiant, idCours;
+    double note;
     while(continuer == 1)
     {
         cout << "-- MENU --" << endl;
@@ -37,25 +37,32 @@ int main()
         {
             case 1:
                 cout << "Donner l'id de l'étudiant" << endl;
-                cin >> id;
-                cout << ISFA.getEtudiant(id)->moyenne() << endl;
+                cin >> idEtudiant;
+                cout << "Moyenne : " << ISFA.getEtudiant(idEtudiant)->moyenne() << endl;
                 break;
 
             case 2:
                 cout << "Donnez l'id de l'étudiant" << endl;
-                cin >> id;
+                cin >> idEtudiant;
                 cout << "Donnez l'id du cours" << endl;
                 cin >> idCours;
-                ISFA.getEtudiant(id)->getClassementCours(idCours);
+                ISFA.getEtudiant(idEtudiant)->getClassementCours(idCours);
 
             case 3:
                 cout << "Donnez l'id de l'étudiant" << endl;
-                cin >> id;
-                ISFA.getEtudiantMaster(id)->getTutores();
+                cin >> idEtudiant;
+                ISFA.getEtudiantMaster(idEtudiant)->getTutores();
                 break;
+
             case 4:
                 cout << "Donner l'id de l'étudiant" << endl;
+                cin >> idEtudiant;
                 cout << "Donner l'id du cours" << endl;
+                cin >> idCours;
+                cout << "Donner la nouvelle note" << endl;
+                cin >> note;
+                ISFA.getCours(idCours)->modifierNote(idEtudiant, note);
+                ISFA.getEtudiant(idEtudiant)->modifierNoteCours(idCours, note);
                 break;
 
             case 5:
@@ -72,14 +79,14 @@ int main()
 
             case 7:
                 cout << "Donner l'ID du cours" << endl;
-                cin >> id;
-                ISFA.getCours(id)->help_cours();
+                cin >> idEtudiant;
+                ISFA.getCours(idEtudiant)->help_cours();
                 break;
 
             case 8:
                 cout << "Donner l'ID de l'enseignant" << endl;
-                cin >> id;
-                ISFA.getEnseignant(id)->afficherEtudiantDifficulte();
+                cin >> idEtudiant;
+                ISFA.getEnseignant(idEtudiant)->afficherEtudiantDifficulte();
                 break;
 
             default :

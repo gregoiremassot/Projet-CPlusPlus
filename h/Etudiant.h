@@ -36,6 +36,7 @@ public:
     string get_nom_cours(int code_cours);
     void initialiserPointeursCours(Universite* universite);
     void getClassementCours(int id_cours);
+    void modifierNoteCours(int idCours, double nouvelleNote);
 protected:
     int m_id;
     string m_name;

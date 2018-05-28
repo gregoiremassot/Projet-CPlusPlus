@@ -90,7 +90,7 @@ vector<string> Cours::help_cours(void) // renvoie True (besoin d'aide) or False 
         if(m_eleves[i].e_note <10)
         {
             help_cours.push_back(m_eleves[i].e_etudiant->get_name());
-            cout << m_eleves[i].e_etudiant->get_name() << endl;
+            //cout << m_eleves[i].e_etudiant->get_name() << endl;
         }
     }
         return help_cours;
@@ -124,4 +124,15 @@ void Cours::getClassementCours() {
 vector<eleve> Cours::getEleves()
 {
     return m_eleves;
+}
+
+void Cours::modifierNote(int idEleve, double nouvelleNote)
+{
+    for(int i = 0; i < m_eleves.size(); i++)
+    {
+        if(m_eleves[i].e_etudiant->get_id() == idEleve)
+        {
+            m_eleves[i].e_note = nouvelleNote;
+        }
+    }
 }
