@@ -43,6 +43,7 @@ int main()
                 cout << "Donnez l'id du cours" << endl;
                 cin >> idCours;
                 ISFA.getEtudiant(idEtudiant)->getClassementCours(idCours);
+                break;
 
             case 3:
                 cout << "Donnez l'id de l'étudiant" << endl;

@@ -145,16 +145,34 @@ INTO OUTFILE './liste_etudiant_licence.txt'
 FIELDS TERMINATED BY ' '
 LINES TERMINATED BY '\n';
 
--- Requetes de comparaison --
+-- Requetes de comparaison SQL/C++ --
 
--- Moyenne - Cours
-SELECT AVG(note) FROM suivre WHERE code_cours = 4
+
+-- 1- Moyenne - Etudiant
+SELECT AVG(note) FROM suivre WHERE suivre.numero_etudiant = 10;
+SELECT AVG(note) FROM suivre WHERE suivre.numero_etudiant = 33;
+
+-- 2- Classement Etudiant
+SELECT etudiant.numero, etudiant.nom, suivre.code_cours, suivre.note FROM etudiant
+INNER JOIN suivre ON suivre.numero_etudiant = etudiant.numero
+WHERE code_cours = 7
+ORDER BY note DESC;
+
+-- 3- EtudiantsTutores qu'il faut aider - EtudiantMaster
+SELECT etudiant.numero, etudiant.nom, etudiant.niveau, etudiant.id_tuteur, AVG(suivre.note) AS moyenne FROM etudiant
+  INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
+WHERE etudiant.id_tuteur=34
+GROUP BY etudiant.numero
+HAVING moyenne < 10;
+
+-- 5- Moyenne - Cours
+SELECT AVG(note) FROM suivre WHERE code_cours = 8
 GROUP BY code_cours;
 
 -- 6- Classement Etudiants - Cours
 SELECT etudiant.numero, etudiant.nom, suivre.code_cours, suivre.note FROM etudiant
-  INNER JOIN suivre ON suivre.numero_etudiant = etudiant.numero
-WHERE code_cours = 6
+INNER JOIN suivre ON suivre.numero_etudiant = etudiant.numero
+WHERE code_cours = 7
 ORDER BY note DESC;
 
 -- 7- Etudiants en difficulté - Cours
@@ -167,23 +185,9 @@ SELECT suivre.code_cours, etudiant.nom, enseignant.numero, suivre.note FROM suiv
 INNER JOIN etudiant ON etudiant.numero = suivre.numero_etudiant
 INNER JOIN cours ON cours.code = suivre.code_cours
 INNER JOIN enseignant ON enseignant.numero = cours.numero_enseignant
-WHERE enseignant.numero=2 AND suivre.note < 10;
+WHERE enseignant.numero=1 AND suivre.note < 10;
 
 SHOW TABLES ;
-
-
--- Moyenne - Etudiant
-SELECT AVG(note) FROM suivre WHERE suivre.numero_etudiant = 33;
-
--- Classements - Etudiant
-
--- EtudiantsTutores - EtudiantMaster
-SELECT etudiant.numero, etudiant.nom, etudiant.niveau, etudiant.id_tuteur, AVG(suivre.note) FROM etudiant
-INNER JOIN suivre ON etudiant.numero = suivre.numero_etudiant
-WHERE etudiant.id_tuteur=34
-GROUP BY etudiant.numero;
-
-SELECT * FROM suivre;
 
 
 
