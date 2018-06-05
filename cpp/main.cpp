@@ -13,6 +13,7 @@ int main()
     while(continuer == 1)
     {
         cout << "-- MENU --" << endl;
+        cout << "0- Sortir du programme" << endl;
         cout << "1- Afficher la moyenne d'un étudiant" << endl;
         cout << "2- Afficher le classement d'un étudiant dans un cours " << endl;
         cout << "3- Afficher les etudiants tutores qu'il faut aider" << endl;
@@ -45,10 +46,10 @@ int main()
                 cin >> idEtudiant;
                 cout << "Donnez l'id du cours" << endl;
                 cin >> idCours;
-                if(ISFA.getEtudiant(idEtudiant) != 0)
+                if(ISFA.getEtudiant(idEtudiant) != 0 && ISFA.getCours(idCours) != 0)
                     ISFA.getEtudiant(idEtudiant)->getClassementCours(idCours);
                 else
-                    cout << "Etudiant non trouvé dans la base de donnée" << endl;
+                    cout << "Etudiant ou Cours non trouvés dans la base de données" << endl;
                 break;
 
             case 3:
@@ -65,14 +66,14 @@ int main()
                 cin >> idEtudiant;
                 cout << "Donner l'id du cours" << endl;
                 cin >> idCours;
-                cout << "Donner la nouvelle note" << endl;
-                cin >> note;
-                if(ISFA.getCours(idCours) == 0)
-                    cout << "Etudiant en Master non trouvé dans la base de donnée" << endl;
+                if(ISFA.getEtudiant(idEtudiant) == 0)
+                    cout << "Etudiant non trouvé dans la base de donnée" << endl;
                 else if(ISFA.getCours(idCours) == 0)
                     cout << "Cours non trouvé dans la base de donnée" << endl;
                 else
                 {
+                    cout << "Donner la nouvelle note" << endl;
+                    cin >> note;
                     ISFA.getCours(idCours)->modifierNote(idEtudiant, note);
                     ISFA.getEtudiant(idEtudiant)->modifierNoteCours(idCours, note);
                 }
@@ -141,6 +142,7 @@ int main()
 
             default :
                 continuer = 0;
+                cout << "Fin du programme" << endl;
                 break;
         }
         cout << endl;

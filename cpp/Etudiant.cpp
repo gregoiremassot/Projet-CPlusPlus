@@ -139,10 +139,12 @@ void Etudiant::getClassementCours(int id_cours)
     int classement;
     vector<eleve> eleves_cours;
     bool continuer = true;
+    bool etudiantDansCours = false;
     for(int i=0; i<m_liste_cours.size(); i++)
     {
         if(m_liste_cours[i].cours->getCode() == id_cours)
         {
+            etudiantDansCours = true;
             eleves_cours = m_liste_cours[i].cours->getEleves();
             sort(eleves_cours.begin(), eleves_cours.end(), less_than_note());
 
@@ -163,6 +165,8 @@ void Etudiant::getClassementCours(int id_cours)
             cout << "Classement : " << classement << endl;
         }
     }
+    if(etudiantDansCours == false)
+        cout << "L'étudiant ne suit pas ce Cours" << endl;
 }
 
 void Etudiant::modifierNoteCours(int idCours, double nouvelleNote)

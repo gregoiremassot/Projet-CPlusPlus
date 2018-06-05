@@ -133,11 +133,15 @@ vector<eleve> Cours::getEleves()
 
 void Cours::modifierNote(int idEleve, double nouvelleNote)
 {
+    bool coursSuivi = false;
     for(int i = 0; i < m_eleves.size(); i++)
     {
         if(m_eleves[i].e_etudiant->get_id() == idEleve)
         {
+            coursSuivi = true;
             m_eleves[i].e_note = nouvelleNote;
         }
     }
+    if(coursSuivi==false)
+        cout << "L'étudiant ne suit pas ce cours, on ne peut pas modifier sa note" << endl;
 }
