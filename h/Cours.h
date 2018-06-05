@@ -1,5 +1,5 @@
 //
-// Created by Grégoire on 26/04/2018.
+// David-Anthony Sellem
 //
 
 #ifndef PROJET_CPP_COURS_H

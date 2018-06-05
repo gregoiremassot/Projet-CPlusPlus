@@ -1,5 +1,5 @@
 //
-// Updated by Davidan97 on 6/05/2018.
+// David-Anthony Sellem
 //
 
 #ifndef PROJET_CPP_ETUDIANT_H

@@ -1,5 +1,5 @@
 //
-// Created by Grégoire on 28/04/2018.
+// Gregoire Massot
 //
 
 #ifndef PROJET_CPP_ETUDIANTLICENCE_H

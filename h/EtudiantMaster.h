@@ -1,5 +1,5 @@
 //
-// Updated by Davidan97 on 6/05/2018.
+// Gregoire Massot
 //
 
 #ifndef PROJET_CPP_ETUDIANTMASTER_H
