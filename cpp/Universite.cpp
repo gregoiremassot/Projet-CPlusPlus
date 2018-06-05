@@ -114,7 +114,6 @@ Etudiant* Universite::getEtudiant(int idEtudiant)
         }
         i++;
     }
-
     return 0;
 }
 

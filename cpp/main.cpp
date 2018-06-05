@@ -34,7 +34,10 @@ int main()
             case 1:
                 cout << "Donner l'id de l'étudiant" << endl;
                 cin >> idEtudiant;
-                cout << "Moyenne : " << ISFA.getEtudiant(idEtudiant)->moyenne() << endl;
+                if(ISFA.getEtudiant(idEtudiant) != 0)
+                    cout << "Moyenne : " << ISFA.getEtudiant(idEtudiant)->moyenne() << endl;
+                else
+                    cout << "Etudiant non trouvé dans la base de donnée" << endl;
                 break;
 
             case 2:
@@ -42,13 +45,19 @@ int main()
                 cin >> idEtudiant;
                 cout << "Donnez l'id du cours" << endl;
                 cin >> idCours;
-                ISFA.getEtudiant(idEtudiant)->getClassementCours(idCours);
+                if(ISFA.getEtudiant(idEtudiant) != 0)
+                    ISFA.getEtudiant(idEtudiant)->getClassementCours(idCours);
+                else
+                    cout << "Etudiant non trouvé dans la base de donnée" << endl;
                 break;
 
             case 3:
                 cout << "Donnez l'id de l'étudiant" << endl;
                 cin >> idEtudiant;
-                ISFA.getEtudiantMaster(idEtudiant)->getTutores();
+                if(ISFA.getEtudiantMaster(idEtudiant) != 0)
+                    ISFA.getEtudiantMaster(idEtudiant)->getTutores();
+                else
+                    cout << "Etudiant en Master non trouvé dans la base de donnée" << endl;
                 break;
 
             case 4:
@@ -58,36 +67,60 @@ int main()
                 cin >> idCours;
                 cout << "Donner la nouvelle note" << endl;
                 cin >> note;
-                ISFA.getCours(idCours)->modifierNote(idEtudiant, note);
-                ISFA.getEtudiant(idEtudiant)->modifierNoteCours(idCours, note);
+                if(ISFA.getCours(idCours) == 0)
+                    cout << "Etudiant en Master non trouvé dans la base de donnée" << endl;
+                else if(ISFA.getCours(idCours) == 0)
+                    cout << "Cours non trouvé dans la base de donnée" << endl;
+                else
+                {
+                    ISFA.getCours(idCours)->modifierNote(idEtudiant, note);
+                    ISFA.getEtudiant(idEtudiant)->modifierNoteCours(idCours, note);
+                }
                 break;
 
             case 5:
                 cout << "Donnez l'id du Cours" << endl;
                 cin >> idCours;
-                cout << "Moyenne sur le cours : " << ISFA.getCours(idCours)->moyenne() << endl;
+                if(ISFA.getCours(idCours) != 0)
+                    cout << "Moyenne sur le cours : " << ISFA.getCours(idCours)->moyenne() << endl;
+                else
+                    cout << "Cours non trouvé dans la base de donnée" << endl;
                 break;
 
             case 6:
                 cout << "Donnez l'id du Cours" << endl;
                 cin >> idCours;
-                ISFA.getCours(idCours)->getClassementCours();
+                if(ISFA.getCours(idCours) != 0)
+                    ISFA.getCours(idCours)->getClassementCours();
+                else
+                    cout << "Cours non trouvé dans la base de donnée" << endl;
                 break;
 
             case 7:
                 cout << "Donner l'ID du cours" << endl;
                 cin >> idCours;
-                cout << "Etudiant" << endl;
-                for(int k =0; k<ISFA.getCours(idCours)->help_cours().size();k++)
+                if(ISFA.getCours(idCours) != 0)
                 {
-                    cout << ISFA.getCours(idCours)->help_cours()[k] << endl;
+
+                    cout << "Etudiant" << endl;
+                    for(int k =0; k<ISFA.getCours(idCours)->help_cours().size();k++)
+                    {
+                        cout << ISFA.getCours(idCours)->help_cours()[k] << endl;
+                    }
                 }
+                else
+                    cout << "Cours non trouvé dans la base de donnée" << endl;
                 break;
 
             case 8:
                 cout << "Donner l'ID de l'enseignant" << endl;
                 cin >> idEtudiant;
-                ISFA.getEnseignant(idEtudiant)->afficherEtudiantDifficulte();
+                if(ISFA.getEnseignant(idEtudiant) != 0)
+                {
+                    ISFA.getEnseignant(idEtudiant)->afficherEtudiantDifficulte();
+                }
+                else
+                    cout << "Enseignant non trouvé dans la base de donnée" << endl;
                 break;
 
             case 10:

@@ -49,3 +49,4 @@ for i in range(0,int(len(lines)/n)):
     fichier_ecrire.close()
 fichier.close()
 
+
